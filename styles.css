@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -5,42 +7,69 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f7f7f7;
+    background: linear-gradient(120deg, #ffecd2, #fcb69f);
+    overflow: hidden;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Animación fondo */
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
     text-align: center;
+    z-index: 10;
 }
 
 h1 {
-    font-size: 36px;
-    color: #8B4513;
+    font-size: 42px;
+    color: #6b3e26;
     margin-top: 20px;
-    z-index: 1;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    animation: fadeInText 2s ease-in-out;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .flower-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 .flower {
     width: 200px;
     height: 200px;
-    margin: 10px;
-    position: relative;
+    position: absolute;
+    animation: floatFlower 6s ease-in-out infinite;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
 }
 
 .petal {
     width: 45px;
     height: 90px;
-    background-color: #FFD700;
+    background: radial-gradient(circle at center, #FFD700, #ffae00);
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform-origin: 0 100%;
+    box-shadow: 0 0 10px rgba(255,215,0,0.8);
+    animation: fadeInPetal 0.6s ease-in-out both;
 }
 
 .p1 { transform: translate(-50%, -50%) rotate(0deg); }
@@ -54,28 +83,48 @@ h1 {
 .p9 { transform: translate(-50%, -50%) rotate(288deg); }
 .p10 { transform: translate(-50%, -50%) rotate(324deg); }
 
-/* Agrega las siguientes clases para las animaciones */
-@keyframes fadeInPetal {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Centro de la flor */
+.flower::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #8B4513, #5a2c0c);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
-@keyframes fadeOutPetal {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+/* Sparkles */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sparkleFall 4s linear infinite;
+    box-shadow: 0 0 10px white;
 }
 
-.petal {
-    /* Agrega una animación de entrada a los pétalos */
-    animation: fadeInPetal 0.5s ease-in-out both;
+@keyframes sparkleFall {
+    0% { transform: translateY(-10px) scale(0.5); opacity: 1; }
+    100% { transform: translateY(100vh) scale(0.2); opacity: 0; }
+}
+.gif-container {
+    position: fixed;
+    bottom: 20px;     /* distancia desde el fondo */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;      /* por encima de las flores */
 }
 
+.gif-container img {
+    width: 120px;     /* ajusta el tamaño a tu gusto */
+    height: auto;
+    border-radius: 12px; /* opcional: esquinas redondeadas */
+    box-shadow: 0 0 12px rgba(0,0,0,0.3); /* pequeño brillo */
+}
 

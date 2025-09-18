@@ -2,7 +2,7 @@ function createFlower() {
     const flowerContainer = document.querySelector(".flower-container");
 
     // Número máximo de flores en pantalla
-    const maxFlowersOnScreen = 15;
+    const maxFlowersOnScreen = 5;
 
     // Verificar si ya hay 10 flores en pantalla
     if (document.querySelectorAll(".flower").length >= maxFlowersOnScreen) {
@@ -76,3 +76,15 @@ function createFlower() {
 
 // Cambia el intervalo de tiempo para controlar la aparición de las flores cada 3 segundos
 setInterval(createFlower, 1000); // Nuevas flores cada 3 segundos
+
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.top = "-10px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 4000);
+}
+
+setInterval(createSparkle, 300);
