@@ -72,6 +72,54 @@ function createFlower() {
             existingPositions.splice(existingPositions.findIndex(pos => pos.x === randomX && pos.y === randomY), 1);
         }, disappearanceTime);
     }
+	
+	setInterval(createSparkle, 300);
+// Control de música
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+musicBtn.addEventListener("click", () => {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "⏸️ Pausar";
+    } else {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Música";
+    }
+});
+
+
+// Botón sorpresa con confeti
+const surpriseBtn = document.getElementById("surpriseBtn");
+
+surpriseBtn.addEventListener("click", () => {
+    for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        // Posición inicial aleatoria
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+
+        // Colores aleatorios
+        const colors = ["#ff4d4d", "#ffd633", "#66ff66", "#66b3ff", "#ff66cc", "#ffffff"];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        // Tamaños variados
+        const size = Math.random() * 8 + 6;
+        confetti.style.width = size + "px";
+        confetti.style.height = (size * 2) + "px";
+
+        // Velocidad y rotación aleatoria
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000);
+    }
+});
+
+
 }
 
 // Cambia el intervalo de tiempo para controlar la aparición de las flores cada 3 segundos
@@ -87,4 +135,4 @@ function createSparkle() {
     setTimeout(() => sparkle.remove(), 4000);
 }
 
-setInterval(createSparkle, 300);
+
