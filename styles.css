@@ -7,36 +7,80 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(120deg, #ffecd2, #fcb69f);
+    background: url("fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
     overflow: hidden;
     font-family: 'Dancing Script', cursive;
 }
 
-/* Animación fondo */
-@keyframes backgroundMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Overlay oscuro para que el texto resalte */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.25); /* puedes ajustar la opacidad */
+    z-index: 1;
 }
 
+/* Contenedor principal */
 .container {
     text-align: center;
-    z-index: 10;
+    position: relative;
+    z-index: 20;
+    max-width: 90vw; /* nunca más ancho que la pantalla */
 }
 
+/* Texto vistoso */
 h1 {
+    color: #fff8dc;
     font-size: 42px;
-    color: #6b3e26;
-    margin-top: 20px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    animation: fadeInText 2s ease-in-out;
+    margin: 10px 0;
+    text-shadow: 0 0 8px rgba(255, 223, 100, 0.8);
+    position: relative;
+    z-index: 30;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid rgba(255,223,100,0.8);
+    animation: typing 4s steps(30, end), blink 0.8s step-end infinite alternate;
 }
 
-@keyframes fadeInText {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+h2 {
+    color: #fff8dc;
+    font-size: 28px;
+    margin: 10px 0;
+    text-shadow: 0 0 8px rgba(255, 223, 100, 0.6);
+    position: relative;
+    z-index: 30;
+    animation: glowPulse 2.5s infinite alternate;
 }
 
+/* Animaciones de texto */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 8px rgba(255,223,100,0.6),
+                     0 0 16px rgba(255,200,50,0.4);
+        transform: scale(1);
+    }
+    to {
+        text-shadow: 0 0 18px rgba(255,223,100,1),
+                     0 0 32px rgba(255,200,50,0.9);
+        transform: scale(1.05);
+    }
+}
+
+/* Flores */
 .flower-container {
     position: absolute;
     top: 0;
@@ -44,19 +88,25 @@ h1 {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 5;   /* flores detrás del texto */
 }
 
 .flower {
     width: 200px;
     height: 200px;
     position: absolute;
-    animation: floatFlower 6s ease-in-out infinite;
+    animation: floatFlower 6s ease-in-out infinite, rotateFlower 12s linear infinite;
 }
 
 @keyframes floatFlower {
     0% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-15px) scale(1.05); }
     100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes rotateFlower {
+    from { transform: rotate(0deg) translateY(0); }
+    to { transform: rotate(360deg) translateY(0); }
 }
 
 .petal {
@@ -107,94 +157,31 @@ h1 {
     opacity: 0.8;
     animation: sparkleFall 4s linear infinite;
     box-shadow: 0 0 10px white;
+    z-index: 10;
 }
 
 @keyframes sparkleFall {
     0% { transform: translateY(-10px) scale(0.5); opacity: 1; }
     100% { transform: translateY(100vh) scale(0.2); opacity: 0; }
 }
+
+/* Gif decorativo */
 .gif-container {
     position: fixed;
-    bottom: 20px;     /* distancia desde el fondo */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 20;      /* por encima de las flores */
+    z-index: 20;
 }
 
 .gif-container img {
-    width: 120px;     /* ajusta el tamaño a tu gusto */
+    width: 200px;
     height: auto;
-    border-radius: 12px; /* opcional: esquinas redondeadas */
-    box-shadow: 0 0 12px rgba(0,0,0,0.3); /* pequeño brillo */
-}
-/* Fondo animado más mágico */
-body {
-    background: linear-gradient(120deg, #ffecd2, #fcb69f, #f6d365, #fda085);
-    background-size: 400% 400%;
-    animation: backgroundMove 15s ease infinite;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
 
-/* Texto con glow */
-h1, h2 {
-    color: #6b3e26;
-    text-shadow: 0 0 8px rgba(255, 223, 100, 0.8),
-                 0 0 16px rgba(255, 200, 50, 0.6);
-    animation: fadeInText 2s ease-in-out, glowPulse 3s infinite alternate;
-}
-
-@keyframes glowPulse {
-    from { text-shadow: 0 0 5px rgba(255,223,100,0.6); }
-    to { text-shadow: 0 0 20px rgba(255,200,50,1); }
-}
-
-/* Flores más variadas */
-.flower {
-    width: 150px;
-    height: 150px;
-    animation: floatFlower 6s ease-in-out infinite, rotateFlower 12s linear infinite;
-}
-
-@keyframes rotateFlower {
-    from { transform: rotate(0deg) translateY(0); }
-    to { transform: rotate(360deg) translateY(0); }
-}
-
-/* Efecto de neblina */
-.fog {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-    animation: fogMove 60s linear infinite;
-    z-index: 1;
-}
-
-@keyframes fogMove {
-    from { transform: translateX(0) translateY(0); }
-    to { transform: translateX(-25%) translateY(-25%); }
-}
-/* Aurora */
-.aurora {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.15), transparent 70%),
-                radial-gradient(circle at 70% 60%, rgba(255,0,255,0.15), transparent 70%),
-                radial-gradient(circle at 40% 80%, rgba(255,255,0,0.1), transparent 70%);
-    animation: auroraMove 30s linear infinite alternate;
-    z-index: 0;
-    pointer-events: none;
-}
-
-@keyframes auroraMove {
-    0%   { transform: translate(0,0) scale(1); }
-    50%  { transform: translate(-10%, -10%) scale(1.1); }
-    100% { transform: translate(10%, 10%) scale(1); }
-}
+/* Botón música */
 .music-control {
     position: fixed;
     top: 20px;
@@ -217,6 +204,8 @@ h1, h2 {
 .music-control button:hover {
     transform: scale(1.1);
 }
+
+/* Botón sorpresa (confeti) */
 .surprise-control {
     position: fixed;
     top: 70px;
@@ -240,8 +229,7 @@ h1, h2 {
     transform: scale(1.1);
 }
 
- 
-/* confeti sorpresa */
+/* Confeti */
 .confetti {
     position: fixed;
     width: 10px;
@@ -264,11 +252,60 @@ h1, h2 {
         opacity: 0;
     }
 }
+/* 📱 Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
 
+    h1 {
+        font-size: 28px;
+        border-right: 2px solid rgba(255,223,100,0.8);
+    }
 
-@keyframes floatUp {
-    0%   { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    h2 {
+        font-size: 20px;
+    }
+
+    .flower {
+        width: 120px;
+        height: 120px;
+    }
+
+    .gif-container img {
+        width: 80px;
+    }
+
+    .music-control button,
+    .surprise-control button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }
 
+@media (max-width: 480px) {
 
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .flower {
+        width: 90px;
+        height: 90px;
+    }
+
+    .gif-container img {
+        width: 60px;
+    }
+
+    .music-control {
+        top: 10px;
+        right: 10px;
+    }
+
+    .surprise-control {
+        top: 50px;
+        right: 10px;
+    }
+}
