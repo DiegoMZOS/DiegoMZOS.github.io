@@ -74,7 +74,7 @@ function spawnObject() {
     const object = document.createElement("button");
     object.type = "button";
     object.className = "falling-object";
-    const shouldSpawnTarget = guaranteeTarget || Math.random() < 0.3;
+    const shouldSpawnTarget = guaranteeTarget || Math.random() < 0.5;
     object.textContent = shouldSpawnTarget
         ? gameTarget
         : gameSymbols[Math.floor(Math.random() * gameSymbols.length)];
