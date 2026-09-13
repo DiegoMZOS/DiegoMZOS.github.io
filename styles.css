@@ -63,3 +63,54 @@ h1, h2 { margin: 0; font-family: "Bree Serif", Georgia, serif; font-weight: 400;
 @keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } } @keyframes drift { to { transform: translateX(calc(100vw + 720px)); } } @keyframes bubbles { to { transform: translateY(-110vh) rotate(20deg); opacity: 0; } } @keyframes bob { 50% { transform: translateY(-8px) rotate(4deg); } } @keyframes confetti { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 @media (max-width: 700px) { .app-shell { width: min(100% - 24px, 1100px); padding-top: 16px; }.topbar__status { display: none; }.ship-card { min-height: 760px; padding: 27px 21px 20px; border-radius: 21px; }.ship-card__stamp { top: 21px; right: 21px; transform: scale(.8) rotate(10deg); }.hero { padding-top: 62px; }.hero__copy { margin-top: 20px; }.route-card { margin-top: 40px; }.route-card__heading { display: block; }.route-card__heading strong { display: block; margin-top: 5px; }.ship-controls { align-items: stretch; flex-direction: column; margin-top: 28px; }.main-nav { justify-content: space-between; width: 100%; gap: 0; }.nav-item { flex-direction: column; gap: 3px; padding: 7px 4px; font-size: .58rem; }.music-button { width: 100%; }.island-grid { grid-template-columns: 1fr; margin-top: 25px; }.island { min-height: auto; flex-direction: row; align-items: center; gap: 13px; padding: 13px; }.island span { margin: 0; }.island small { margin-left: auto; }.letter { padding: 18px; font-size: .93rem; }.game-board { align-items: stretch; flex-direction: column; }.game-choices { width: 100%; }.footer { align-items: flex-start; flex-direction: column; }.footer__quote { align-self: flex-end; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+/* Cubierta de madera: textura, herrajes y tonos de barco */
+:root {
+    --navy: #1d120d;
+    --deep: #3a2115;
+    --sea: #6b3b21;
+    --aqua: #d5a85b;
+    --foam: #fff4d6;
+    --gold: #e5ad45;
+    --gold-light: #ffe0a0;
+    --coral: #c9684f;
+    --ink: #fff6df;
+    --muted: #d1b995;
+    --line: rgba(255, 235, 190, .24);
+    --shadow: 0 28px 80px rgba(21, 8, 3, .62);
+}
+
+body { background: #1d120d; }
+.ocean { background: linear-gradient(145deg, #1a100b, #4c2817 48%, #21130e); }
+.ocean::before { opacity: .08; mix-blend-mode: soft-light; filter: sepia(1) saturate(1.3); }
+.ocean::after { background: radial-gradient(ellipse at 50% 5%, rgba(255, 211, 123, .18), transparent 42%), linear-gradient(transparent 52%, rgba(24, 10, 4, .78)); }
+.sun { background: radial-gradient(circle, #ffe4a1, #c77b33 42%, transparent 71%); opacity: .45; }
+.cloud { background: rgba(255, 231, 182, .1); }
+.waves { opacity: .08; background: repeating-radial-gradient(ellipse at 50% 100%, transparent 0 28px, #d5a85b 29px 31px, transparent 32px 66px); }
+
+.ship-card {
+    border-color: rgba(255, 220, 153, .4);
+    border-radius: 15px;
+    background:
+        linear-gradient(90deg, rgba(66, 34, 18, .28) 1px, transparent 1px) 0 0 / 72px 100%,
+        repeating-linear-gradient(0deg, rgba(31, 13, 6, .12) 0 3px, transparent 3px 82px),
+        linear-gradient(135deg, rgba(101, 56, 29, .97), rgba(46, 23, 13, .98));
+    box-shadow: inset 0 0 0 9px rgba(30, 12, 5, .16), inset 0 0 50px rgba(16, 6, 2, .45), var(--shadow);
+}
+.ship-card::before { position: absolute; inset: 14px; z-index: -1; content: ""; border: 1px solid rgba(255, 220, 153, .18); border-radius: 8px; pointer-events: none; }
+.ship-card::after { opacity: .48; background: repeating-linear-gradient(90deg, transparent 0 70px, rgba(255, 210, 130, .08) 70px 72px), repeating-linear-gradient(0deg, transparent 0 78px, rgba(20, 7, 2, .16) 78px 82px); }
+.ship-card__stamp { border-color: rgba(229, 173, 69, .82); color: var(--gold); }
+.compass { border-color: rgba(229, 173, 69, .28); color: rgba(229, 173, 69, .3); }
+.compass::before { border-color: rgba(229, 173, 69, .25); }
+.route-card, .letter, .island, .choice, .compass-card { border-color: rgba(255, 220, 153, .28); background: rgba(38, 17, 8, .38); }
+.route__line { background: rgba(255, 235, 190, .22); }
+.route__line.is-done { background: linear-gradient(90deg, var(--gold), #c97943); }
+.island:hover, .island.is-selected, .choice:hover { border-color: var(--gold); background: rgba(229, 173, 69, .14); }
+.nav-item:hover, .nav-item.is-active, .music-button:hover { border-color: rgba(229, 173, 69, .55); background: rgba(31, 12, 5, .28); }
+.button--outline { border-color: rgba(255, 220, 153, .32); background: rgba(38, 17, 8, .28); }
+.button--outline:hover { background: rgba(229, 173, 69, .16); }
+.crew img { border-color: var(--gold); }
+.jolly { border-color: #8a572c; background: #f4d18a; }
+.route__port.is-current { color: var(--navy); border-color: var(--gold); background: var(--gold); box-shadow: 0 0 0 5px rgba(229, 173, 69, .14); }
+.signal { background: var(--gold); box-shadow: 0 0 0 5px rgba(229, 173, 69, .13); }
+.image-slot--treasure { background: rgba(50, 22, 8, .35); }
