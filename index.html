@@ -3,83 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Un pequeño jardín digital de flores amarillas para Kanel.">
-    <meta name="theme-color" content="#172b2b">
+    <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
+    <meta name="theme-color" content="#071d2b">
     <link rel="stylesheet" href="styles.css">
-    <title>Flores para Kanel | Un jardín digital</title>
+    <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
-    <div class="background" aria-hidden="true">
-        <div class="aurora aurora--one"></div>
-        <div class="aurora aurora--two"></div>
-        <div class="grain"></div>
+    <div class="ocean" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud--one"></div>
+        <div class="cloud cloud--two"></div>
+        <div class="waves"></div>
+        <div class="bubbles"></div>
     </div>
 
-    <main class="page-shell">
+    <main class="app-shell">
         <header class="topbar">
-            <a class="brand" href="#inicio" aria-label="Volver al inicio">
-                <span class="brand-mark">✦</span>
-                <span>Jardín para Kanel</span>
+            <a class="brand" href="#inicio" data-view-link="inicio" aria-label="Volver al barco">
+                <span class="jolly">☠</span>
+                <span><strong>Grand Line</strong><small>para Kanel</small></span>
             </a>
-            <span class="status"><span class="status-dot"></span> Hecho con cariño</span>
+            <div class="topbar__status"><span class="signal"></span> Navegando con cariño</div>
         </header>
 
-        <section class="garden-card" id="inicio" aria-labelledby="page-title">
-            <div class="garden-card__glow" aria-hidden="true"></div>
-            <div class="flower-container" aria-hidden="true"></div>
+        <section class="ship-card" aria-label="Aventura interactiva">
+            <div class="ship-card__stamp" aria-hidden="true">WANTED<br><strong>KANEL</strong><small>∞ berries</small></div>
+            <div class="compass" aria-hidden="true">✦</div>
 
-            <div class="intro">
-                <p class="eyebrow">Un detalle que florece</p>
-                <h1 id="page-title">Tal vez no sean reales,<br><em>pero no te quedas sin tus flores amarillas.</em></h1>
-                <p class="intro__lead">Porque algunas personas merecen tener primavera en cualquier momento del año.</p>
-                <span class="signature">— Para Kanel <span aria-hidden="true">🌼</span></span>
+            <div class="view is-active" id="view-inicio" data-view="inicio">
+                <div class="hero">
+                    <p class="eyebrow">Registro de la tripulación · 001</p>
+                    <h1>El tesoro más grande<br>es <em>tenerte a bordo.</em></h1>
+                    <p class="hero__copy">Tal vez no sean reales, pero no te quedas sin tus flores amarillas. Hoy zarpamos hacia una aventura hecha especialmente para ti.</p>
+                    <div class="hero__actions">
+                        <button class="button button--gold" type="button" data-view-link="mensaje">☀️ Leer el mensaje</button>
+                        <button class="button button--outline" type="button" data-view-link="islas">⚓ Explorar islas</button>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong>Rumbo a la isla de las flores</strong></div>
+                    <div class="route">
+                        <span class="route__port is-done">✦<small>Salida</small></span>
+                        <span class="route__line is-done"></span>
+                        <span class="route__port is-current">★<small>Ahora</small></span>
+                        <span class="route__line"></span>
+                        <span class="route__port">♜<small>Tesoro</small></span>
+                    </div>
+                </div>
             </div>
 
-            <nav class="tabs" aria-label="Contenido del jardín">
-                <button class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-message" id="tab-message" data-panel="panel-message">El mensaje</button>
-                <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-garden" id="tab-garden" data-panel="panel-garden" tabindex="-1">El jardín</button>
-                <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-note" id="tab-note" data-panel="panel-note" tabindex="-1">Un detalle</button>
-            </nav>
-
-            <div class="panels">
-                <section class="tab-panel is-visible" role="tabpanel" tabindex="0" id="panel-message" aria-labelledby="tab-message">
-                    <p class="panel-kicker">Para guardar cerca</p>
-                    <p class="panel-copy">Que nunca te falten motivos para sonreír, ni flores para recordarte lo especial que eres.</p>
-                </section>
-                <section class="tab-panel" role="tabpanel" tabindex="0" id="panel-garden" aria-labelledby="tab-garden" hidden>
-                    <p class="panel-kicker">Flores en movimiento</p>
-                    <p class="panel-copy">Mira cómo aparecen nuevas flores a tu alrededor. Pulsa <strong>✨ Sorpresa</strong> para llenar el jardín de color.</p>
-                </section>
-                <section class="tab-panel" role="tabpanel" tabindex="0" id="panel-note" aria-labelledby="tab-note" hidden>
-                    <p class="panel-kicker">Un rincón tranquilo</p>
-                    <p class="panel-copy">La música es opcional, el cariño no. Quédate el tiempo que quieras.</p>
-                </section>
+            <div class="view" id="view-mensaje" data-view="mensaje" hidden>
+                <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
+                <p class="eyebrow">Mensaje en una botella · 002</p>
+                <h2>Para nuestra<br><em>nakama favorita.</em></h2>
+                <div class="letter">
+                    <p>Dicen que el One Piece es el tesoro más grande del mundo, pero yo creo que los verdaderos tesoros son las personas que hacen más bonito el viaje.</p>
+                    <p>Que nunca te falte viento a favor, una tripulación que te cuide y motivos para sonreír. Si el mar se pone difícil, recuerda que siempre tendrás un lugar en este barco.</p>
+                    <strong>Con cariño, tu capitán de las flores amarillas 🌼</strong>
+                </div>
+                <button class="button button--coral" type="button" data-view-link="tesoro">🔐 Abrir el tesoro secreto</button>
             </div>
 
-            <div class="card-footer">
-                <div class="now-playing">
-                    <span class="music-icon" aria-hidden="true">♫</span>
-                    <span><strong>Un momento para ti</strong><small id="musicStatus">Música en pausa</small></span>
+            <div class="view" id="view-islas" data-view="islas" hidden>
+                <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
+                <p class="eyebrow">Archipiélago de los recuerdos · 003</p>
+                <h2>Elige una<br><em>isla especial.</em></h2>
+                <div class="island-grid">
+                    <button class="island" type="button" data-message="En la isla del sol, hasta los días nublados terminan brillando contigo." data-emoji="☀️"><span>☀️</span><strong>Isla Sol</strong><small>Calma y alegría</small></button>
+                    <button class="island" type="button" data-message="La isla de las flores guarda un ramo que aparece cada vez que alguien piensa en ti." data-emoji="🌼"><span>🌼</span><strong>Isla Flor</strong><small>Un detalle amarillo</small></button>
+                    <button class="island" type="button" data-message="En la isla del cielo, tus sueños tienen todo el espacio del mundo para navegar." data-emoji="☁️"><span>☁️</span><strong>Isla Cielo</strong><small>Sueños sin límites</small></button>
                 </div>
-                <div class="actions">
-                    <button class="button button--soft" id="musicBtn" type="button" aria-pressed="false"><span aria-hidden="true">♪</span> Escuchar</button>
-                    <button class="button button--accent" id="surpriseBtn" type="button"><span aria-hidden="true">✦</span> Sorpresa</button>
+                <p class="island-message" id="islandMessage">Selecciona una isla para descubrir su mensaje.</p>
+            </div>
+
+            <div class="view" id="view-tesoro" data-view="tesoro" hidden>
+                <button class="back-link" type="button" data-view-link="mensaje">← Volver al mensaje</button>
+                <p class="eyebrow">Tesoro encontrado · 004</p>
+                <div class="treasure">
+                    <div class="treasure__icon" aria-hidden="true">🎁</div>
+                    <h2>Tu recompensa<br>por llegar hasta aquí.</h2>
+                    <p>Una promesa de capitán: este pequeño rincón siempre tendrá un mensaje, una flor y un lugar para ti.</p>
+                    <div class="bounty"><span>RECOMPENSA</span><strong>∞</strong><small>sonrisas</small></div>
+                    <button class="button button--gold" type="button" id="surpriseBtn">✨ Soltar confeti</button>
                 </div>
+            </div>
+
+            <div class="ship-controls">
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <button class="nav-item is-active" type="button" data-view-link="inicio" data-nav="inicio"><span>⚓</span> Cubierta</button>
+                    <button class="nav-item" type="button" data-view-link="mensaje" data-nav="mensaje"><span>💌</span> Mensaje</button>
+                    <button class="nav-item" type="button" data-view-link="islas" data-nav="islas"><span>🗺️</span> Islas</button>
+                    <button class="nav-item" type="button" data-view-link="tesoro" data-nav="tesoro"><span>💎</span> Tesoro</button>
+                </nav>
+                <button class="music-button" id="musicBtn" type="button" aria-pressed="false"><span>♫</span> Música de abordo</button>
             </div>
         </section>
 
         <footer class="footer">
-            <div class="memory">
-                <img src="Kero.gif" alt="Kero acompañando el jardín" width="56" height="56">
-                <span>Un pequeño jardín digital<br><strong>para una persona especial.</strong></span>
+            <div class="crew">
+                <img src="Kero.gif" alt="Kero navegando con la tripulación" width="48" height="48">
+                <span><strong>Tripulación Kanel</strong><small>Siempre juntos en alta mar</small></span>
             </div>
-            <span class="footer-note">Hecho con flores amarillas <span aria-hidden="true">✺</span></span>
+            <span class="footer__quote">“El mar es el mar” <b>— Luffy</b></span>
         </footer>
     </main>
 
-    <audio id="bgMusic" loop preload="none">
-        <source src="relax.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bgMusic" loop preload="none"><source src="relax.mp3" type="audio/mpeg"></audio>
     <div class="live-region" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
 </body>
