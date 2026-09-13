@@ -45,16 +45,33 @@ document.addEventListener("click", (event) => {
     if (event.target.closest("button, a")) playButtonSound();
 });
 music.volume = 0.55;
-music.play().catch(() => {
-    musicButton.innerHTML = "<span>■</span> Detener música";
+function setMusicButton(isPlaying) {
+    musicButton.innerHTML = isPlaying
+        ? "<span>■</span> Detener música"
+        : "<span>▶</span> Activar música";
+    musicButton.setAttribute("aria-pressed", String(isPlaying));
+}
+
+music.play().then(() => {
+    setMusicButton(true);
+}).catch(() => {
+    setMusicButton(false);
     musicButton.setAttribute("aria-pressed", "false");
-    liveRegion.textContent = "Pulsa reproducir música para iniciar la banda sonora.";
+    liveRegion.textContent = "El navegador requiere una interacción para iniciar la música.";
 });
 musicButton.addEventListener("click", async () => {
-    if (!music.paused) {
+    if (music.paused) {
+        try {
+            await music.play();
+            setMusicButton(true);
+            liveRegion.textContent = "La música está sonando.";
+        } catch {
+            setMusicButton(false);
+            liveRegion.textContent = "No se pudo iniciar la música.";
+        }
+    } else {
         music.pause();
-        musicButton.innerHTML = "<span>▶</span> Música detenida";
-        musicButton.setAttribute("aria-pressed", "false");
+        setMusicButton(false);
         liveRegion.textContent = "La música está detenida.";
     }
 });
