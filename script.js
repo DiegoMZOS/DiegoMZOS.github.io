@@ -209,7 +209,7 @@ treasureModal.addEventListener("click", (event) => {
     if (event.target === treasureModal) treasureModal.hidden = true;
 });
 
-document.querySelector("#downloadCard").addEventListener("click", () => {
+function downloadCanvasCard() {
     const canvas = document.createElement("canvas");
     canvas.width = 1200;
     canvas.height = 760;
@@ -239,4 +239,18 @@ document.querySelector("#downloadCard").addEventListener("click", () => {
     link.download = "tesoro-tripulacion-kanel.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
-});
+}
+
+function downloadRewardImage() {
+    const link = document.createElement("a");
+    link.href = "recompensa-tesoro.png";
+    link.download = "recompensa-tesoro.png";
+    link.rel = "noopener";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    liveRegion.textContent = "La imagen de recompensa se está descargando.";
+}
+
+document.querySelector("#downloadCard").addEventListener("click", downloadCanvasCard);
+document.querySelector("#downloadReward").addEventListener("click", downloadRewardImage);
