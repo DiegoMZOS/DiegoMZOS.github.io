@@ -14,5 +14,4 @@ Conserva los nombres indicados o cambia la ruta `src` correspondiente en `index.
 
 ## Cómo se juega
 
-Los botones inferiores abren las vistas de la cubierta, el mensaje, las islas, el minijuego y el tesoro. En **Jugar**, completa tres rondas eligiendo el símbolo que muestra la brújula. Con 80% o más, la ruta llega al tesoro y se desbloquea la recompensa. En esa vista puedes lanzar confeti y descargar una postal PNG generada en el navegador.
-
+Los botones principales abren el mensaje, las islas o el nuevo minijuego **Desbloquear tesoro**. En el juego caen objetos marinos: solo los aciertos suman puntos. Llega a 10 antes de que termine el tiempo, regresa a la cubierta y pulsa el tesoro completo del timeline para abrir su postal animada y descargar un PNG generado en el navegador.
