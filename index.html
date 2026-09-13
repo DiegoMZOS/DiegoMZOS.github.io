@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=wood-deck-1">
+    <link rel="stylesheet" href="styles.css?v=falling-treasure-1">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -38,16 +38,17 @@
                     <div class="hero__actions">
                         <button class="button button--gold" type="button" data-view-link="mensaje">☀️ Leer el mensaje</button>
                         <button class="button button--outline" type="button" data-view-link="islas">⚓ Explorar islas</button>
+                        <button class="button button--coral" type="button" data-view-link="juego">🔓 Desbloquear tesoro</button>
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong><span id="progressLabel">0%</span> · Completa el juego para llegar al tesoro</strong></div>
+                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong><span id="progressLabel">100%</span> · Tesoro desbloqueado</strong></div>
                     <div class="route">
                         <span class="route__port is-done">✦<small>Salida</small></span>
                         <span class="route__line is-done"></span>
-                        <span class="route__port is-current" id="routeCurrent">★<small>Ahora</small></span>
-                        <span class="route__line" id="routeLine"></span>
-                        <span class="route__port" id="routeTreasure">♜<small>Tesoro</small></span>
+                        <span class="route__port is-unlocked" id="routeCurrent">★<small>Ahora</small></span>
+                        <span class="route__line is-done" id="routeLine"></span>
+                        <button class="route__port is-unlocked route__treasure-button" id="routeTreasure" type="button" aria-label="Abrir tesoro">♜<small>Tesoro</small></button>
                     </div>
                 </div>
             </div>
@@ -81,14 +82,16 @@
                 <button class="back-link" type="button" data-view-link="islas">← Volver a las islas</button>
                 <p class="eyebrow">Prueba de navegación · 005</p>
                 <h2>Encuentra el rumbo<br><em>de la tripulación.</em></h2>
-                <p class="game-intro">Supera 3 rondas. En cada una, elige el símbolo que coincide con la brújula. Necesitas al menos 80% para desbloquear el tesoro.</p>
-                <div class="game-status"><span>Ronda <strong id="gameRound">1</strong>/3</span><span>Puntos <strong id="gameScore">0</strong>/3</span></div>
+                <p class="game-intro">Atrapa únicamente los objetos que indique la brújula. Cada acierto suma un punto; los objetos incorrectos no cuentan. Llega a 10 para completar el nivel.</p>
+                <div class="game-status"><span>Aciertos <strong id="gameScore">0</strong>/10</span><span>Tiempo <strong id="gameTime">30</strong>s</span></div>
                 <div class="game-board">
-                    <div class="compass-card" id="compassCard" aria-live="polite">☀️<small>Encuentra el sol</small></div>
-                    <div class="game-choices" id="gameChoices"></div>
+                    <div class="compass-card" id="compassCard" aria-live="polite">⚓<small>Recolecta anclas</small></div>
+                    <div class="falling-game" id="fallingGame" aria-label="Zona de juego"></div>
                 </div>
-                <p class="game-feedback" id="gameFeedback">Elige una carta para comenzar.</p>
-                <button class="button button--coral" type="button" id="restartGame">↻ Reiniciar partida</button>
+                <p class="game-feedback" id="gameFeedback">Pulsa iniciar para comenzar la travesía.</p>
+                <button class="button button--gold" type="button" id="startGame">▶ Iniciar juego</button>
+                <button class="button button--coral" type="button" id="restartGame">↻ Reiniciar</button>
+                <button class="button button--outline" type="button" id="returnHome" data-view-link="inicio" hidden>← Regresar a la cubierta</button>
             </div>
 
             <div class="view" id="view-tesoro" data-view="tesoro" hidden>
@@ -107,13 +110,6 @@
             </div>
 
             <div class="ship-controls">
-                <nav class="main-nav" aria-label="Navegación principal">
-                    <button class="nav-item is-active" type="button" data-view-link="inicio" data-nav="inicio"><span>⚓</span> Cubierta</button>
-                    <button class="nav-item" type="button" data-view-link="mensaje" data-nav="mensaje"><span>💌</span> Mensaje</button>
-                    <button class="nav-item" type="button" data-view-link="islas" data-nav="islas"><span>🗺️</span> Islas</button>
-                    <button class="nav-item" type="button" data-view-link="juego" data-nav="juego"><span>🎮</span> Jugar</button>
-                    <button class="nav-item" type="button" data-view-link="tesoro" data-nav="tesoro"><span>💎</span> Tesoro</button>
-                </nav>
                 <button class="music-button" id="musicBtn" type="button" aria-pressed="false"><span>♫</span> Música de abordo</button>
             </div>
         </section>
@@ -128,6 +124,16 @@
     </main>
 
     <audio id="bgMusic" loop preload="none"><source src="relax.mp3" type="audio/mpeg"></audio>
+    <div class="treasure-modal" id="treasureModal" hidden role="dialog" aria-modal="true" aria-labelledby="treasureTitle">
+        <div class="treasure-modal__card">
+            <button class="modal-close" id="closeTreasure" type="button" aria-label="Cerrar postal">×</button>
+            <div class="postcard-art" id="postcardArt" aria-hidden="true">✦ ⚓ ✦</div>
+            <p class="eyebrow">Tesoro canjeado</p>
+            <h2 id="treasureTitle">Tu postal de la tripulación</h2>
+            <p>El nivel está completo. Guarda este recuerdo de nuestra travesía.</p>
+            <button class="button button--gold" id="downloadCard" type="button">⬇️ Descargar imagen</button>
+        </div>
+    </div>
     <div class="live-region" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
 </body>
