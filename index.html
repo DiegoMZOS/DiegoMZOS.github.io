@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=game-gif-2">
+    <link rel="stylesheet" href="styles.css?v=navigation-routes-1">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -75,11 +75,10 @@
                     <button class="island" type="button" data-message="En la isla del cielo, tus sueños tienen todo el espacio del mundo para navegar." data-emoji="☁️"><span>☁️</span><strong>Isla Cielo</strong><small>Sueños sin límites</small></button>
                 </div>
                 <p class="island-message" id="islandMessage">Selecciona una isla para descubrir su mensaje.</p>
-                <button class="button button--gold" type="button" data-view-link="juego">🧭 Ir al minijuego</button>
             </div>
 
             <div class="view" id="view-juego" data-view="juego" hidden>
-                <button class="back-link" type="button" data-view-link="islas">← Volver a las islas</button>
+                <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
                 <p class="eyebrow">Prueba de navegación · 005</p>
                 <h2>Encuentra el rumbo<br><em>de la tripulación.</em></h2>
                 <p class="game-intro">Atrapa únicamente los objetos que indique la brújula. Cada acierto suma un punto; los objetos incorrectos no cuentan. Llega a 10 para completar el nivel.</p>
@@ -107,7 +106,7 @@
             </div>
 
             <div class="view" id="view-tesoro" data-view="tesoro" hidden>
-                <button class="back-link" type="button" data-view-link="mensaje">← Volver al mensaje</button>
+                <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
                 <p class="eyebrow">Tesoro encontrado · 004</p>
                 <figure class="treasure-gallery">
                     <img src="tesoro-tripulacion.png" alt="Mapa ilustrado de la tripulación y la Grand Line">
@@ -151,6 +150,6 @@
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=game-gif-2"></script>
+    <script src="script.js?v=navigation-routes-1"></script>
 </body>
 </html>
