@@ -61,9 +61,11 @@ let gameTarget = "⚓";
 let gameTimer;
 let spawnTimer;
 let gameRunning = false;
+let guaranteeTarget = true;
 
 function setGameTarget() {
     gameTarget = gameSymbols[Math.floor(Math.random() * gameSymbols.length)];
+    guaranteeTarget = true;
     compassCard.innerHTML = `${gameTarget}<small>Recolecta este objeto</small>`;
 }
 
@@ -72,7 +74,11 @@ function spawnObject() {
     const object = document.createElement("button");
     object.type = "button";
     object.className = "falling-object";
-    object.textContent = gameSymbols[Math.floor(Math.random() * gameSymbols.length)];
+    const shouldSpawnTarget = guaranteeTarget || Math.random() < 0.3;
+    object.textContent = shouldSpawnTarget
+        ? gameTarget
+        : gameSymbols[Math.floor(Math.random() * gameSymbols.length)];
+    if (shouldSpawnTarget) guaranteeTarget = false;
     object.style.left = `${Math.random() * 88 + 2}%`;
     object.style.animationDuration = `${Math.random() * 1.7 + 2.2}s`;
     object.setAttribute("aria-label", `Objeto ${object.textContent}`);
