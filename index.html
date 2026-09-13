@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=homepage-crew-1">
+    <link rel="stylesheet" href="styles.css?v=message-sounds-1">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
             </a>
             <div class="topbar__tools">
                 <div class="topbar__status"><span class="signal"></span> Navegando con cariño</div>
-                <button class="music-button" id="musicBtn" type="button" aria-pressed="true"><span>Ⅱ</span> Pausar música</button>
+                <button class="music-button" id="musicBtn" type="button" aria-pressed="true"><span>■</span> Detener música</button>
             </div>
         </header>
 
@@ -64,6 +64,10 @@
                 <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
                 <p class="eyebrow">Mensaje en una botella · 002</p>
                 <h2>Para nuestra<br><em>nakama favorita.</em></h2>
+                <figure class="message-gif">
+                    <img src="mensaje-ivankov.gif" alt="Tripulación celebrando el mensaje">
+                    <figcaption>Un mensaje con energía de la tripulación</figcaption>
+                </figure>
                 <div class="letter">
                     <p>Dicen que el One Piece es el tesoro más grande del mundo, pero yo creo que los verdaderos tesoros son las personas que hacen más bonito el viaje.</p>
                     <p>Que nunca te falte viento a favor, una tripulación que te cuide y motivos para sonreír. Si el mar se pone difícil, recuerda que siempre tendrás un lugar en este barco.</p>
@@ -76,9 +80,8 @@
                 <p class="eyebrow">Archipiélago de los recuerdos · 003</p>
                 <h2>Elige una<br><em>isla especial.</em></h2>
                 <div class="island-grid">
-                    <button class="island" type="button" data-message="En la isla del sol, hasta los días nublados terminan brillando contigo." data-emoji="☀️"><span>☀️</span><strong>Isla Sol</strong><small>Calma y alegría</small></button>
-                    <button class="island" type="button" data-message="La isla de las flores guarda un ramo que aparece cada vez que alguien piensa en ti." data-emoji="🌼"><span>🌼</span><strong>Isla Flor</strong><small>Un detalle amarillo</small></button>
-                    <button class="island" type="button" data-message="En la isla del cielo, tus sueños tienen todo el espacio del mundo para navegar." data-emoji="☁️"><span>☁️</span><strong>Isla Cielo</strong><small>Sueños sin límites</small></button>
+                    <button class="island" type="button" data-message="La Isla Estambre está tejida con calma, colores y abrazos que hacen más bonito el viaje." data-emoji="🧶"><span>🧶</span><strong>Isla Estambre</strong><small>Calma y cariño</small></button>
+                    <button class="island" type="button" data-message="En Isla Broadway cada paso tiene música, luces y una razón para celebrar contigo." data-emoji="🎭"><span>🎭</span><strong>Isla Broadway</strong><small>Luces y alegría</small></button>
                 </div>
                 <p class="island-message" id="islandMessage">Selecciona una isla para descubrir su mensaje.</p>
             </div>
@@ -156,6 +159,6 @@
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=homepage-crew-1"></script>
+    <script src="script.js?v=message-sounds-1"></script>
 </body>
 </html>
