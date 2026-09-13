@@ -17,12 +17,23 @@ viewLinks.forEach((link) => link.addEventListener("click", () => showView(link.d
 window.addEventListener("popstate", () => showView(location.hash.slice(1) || "inicio", false));
 showView(location.hash.slice(1) || "inicio", false);
 
+const islandModal = document.querySelector("#islandModal");
+const closeIsland = document.querySelector("#closeIsland");
 document.querySelectorAll(".island").forEach((island) => {
     island.addEventListener("click", () => {
         document.querySelectorAll(".island").forEach((item) => item.classList.remove("is-selected"));
         island.classList.add("is-selected");
         document.querySelector("#islandMessage").textContent = `${island.dataset.emoji} ${island.dataset.message}`;
+        document.querySelector("#islandModalEmoji").textContent = island.dataset.emoji;
+        document.querySelector("#islandModalTitle").textContent = island.querySelector("strong").textContent;
+        document.querySelector("#islandModalMessage").textContent = island.dataset.message;
+        islandModal.hidden = false;
+        closeIsland.focus();
     });
+});
+closeIsland.addEventListener("click", () => { islandModal.hidden = true; });
+islandModal.addEventListener("click", (event) => {
+    if (event.target === islandModal) islandModal.hidden = true;
 });
 
 const musicButton = document.querySelector("#musicBtn");

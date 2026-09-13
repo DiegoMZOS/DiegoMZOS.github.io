@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=music-fallback-1">
+    <link rel="stylesheet" href="styles.css?v=island-dialog-1">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -158,7 +158,16 @@
             <button class="button button--gold" id="downloadCard" type="button">⬇️ Descargar imagen</button>
         </div>
     </div>
+    <div class="island-modal" id="islandModal" hidden role="dialog" aria-modal="true" aria-labelledby="islandModalTitle">
+        <div class="island-modal__card">
+            <button class="modal-close" id="closeIsland" type="button" aria-label="Cerrar mensaje de isla">×</button>
+            <div class="island-modal__emoji" id="islandModalEmoji" aria-hidden="true">🧶</div>
+            <p class="eyebrow">Mensaje de la isla</p>
+            <h2 id="islandModalTitle">Isla Estambre</h2>
+            <p id="islandModalMessage"></p>
+        </div>
+    </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=music-fallback-1"></script>
+    <script src="script.js?v=island-dialog-1"></script>
 </body>
 </html>
