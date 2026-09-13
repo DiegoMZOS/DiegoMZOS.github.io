@@ -41,13 +41,13 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong>Rumbo a la isla de las flores</strong></div>
+                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong><span id="progressLabel">0%</span> · Completa el juego para llegar al tesoro</strong></div>
                     <div class="route">
                         <span class="route__port is-done">✦<small>Salida</small></span>
                         <span class="route__line is-done"></span>
-                        <span class="route__port is-current">★<small>Ahora</small></span>
-                        <span class="route__line"></span>
-                        <span class="route__port">♜<small>Tesoro</small></span>
+                        <span class="route__port is-current" id="routeCurrent">★<small>Ahora</small></span>
+                        <span class="route__line" id="routeLine"></span>
+                        <span class="route__port" id="routeTreasure">♜<small>Tesoro</small></span>
                     </div>
                 </div>
             </div>
@@ -74,17 +74,35 @@
                     <button class="island" type="button" data-message="En la isla del cielo, tus sueños tienen todo el espacio del mundo para navegar." data-emoji="☁️"><span>☁️</span><strong>Isla Cielo</strong><small>Sueños sin límites</small></button>
                 </div>
                 <p class="island-message" id="islandMessage">Selecciona una isla para descubrir su mensaje.</p>
+                <button class="button button--gold" type="button" data-view-link="juego">🧭 Ir al minijuego</button>
+            </div>
+
+            <div class="view" id="view-juego" data-view="juego" hidden>
+                <button class="back-link" type="button" data-view-link="islas">← Volver a las islas</button>
+                <p class="eyebrow">Prueba de navegación · 005</p>
+                <h2>Encuentra el rumbo<br><em>de la tripulación.</em></h2>
+                <p class="game-intro">Supera 3 rondas. En cada una, elige el símbolo que coincide con la brújula. Necesitas al menos 80% para desbloquear el tesoro.</p>
+                <div class="game-status"><span>Ronda <strong id="gameRound">1</strong>/3</span><span>Puntos <strong id="gameScore">0</strong>/3</span></div>
+                <div class="game-board">
+                    <div class="compass-card" id="compassCard" aria-live="polite">☀️<small>Encuentra el sol</small></div>
+                    <div class="game-choices" id="gameChoices"></div>
+                </div>
+                <p class="game-feedback" id="gameFeedback">Elige una carta para comenzar.</p>
+                <button class="button button--coral" type="button" id="restartGame">↻ Reiniciar partida</button>
             </div>
 
             <div class="view" id="view-tesoro" data-view="tesoro" hidden>
                 <button class="back-link" type="button" data-view-link="mensaje">← Volver al mensaje</button>
                 <p class="eyebrow">Tesoro encontrado · 004</p>
                 <div class="treasure">
-                    <div class="treasure__icon" aria-hidden="true">🎁</div>
+                    <div class="treasure__icon image-slot image-slot--treasure" role="img" aria-label="Espacio para imagen del tesoro">🎁</div>
                     <h2>Tu recompensa<br>por llegar hasta aquí.</h2>
                     <p>Una promesa de capitán: este pequeño rincón siempre tendrá un mensaje, una flor y un lugar para ti.</p>
                     <div class="bounty"><span>RECOMPENSA</span><strong>∞</strong><small>sonrisas</small></div>
-                    <button class="button button--gold" type="button" id="surpriseBtn">✨ Soltar confeti</button>
+                    <div class="treasure-actions">
+                        <button class="button button--gold" type="button" id="surpriseBtn">✨ Soltar confeti</button>
+                        <button class="button button--outline" type="button" id="downloadCard">⬇️ Descargar postal</button>
+                    </div>
                 </div>
             </div>
 
@@ -93,6 +111,7 @@
                     <button class="nav-item is-active" type="button" data-view-link="inicio" data-nav="inicio"><span>⚓</span> Cubierta</button>
                     <button class="nav-item" type="button" data-view-link="mensaje" data-nav="mensaje"><span>💌</span> Mensaje</button>
                     <button class="nav-item" type="button" data-view-link="islas" data-nav="islas"><span>🗺️</span> Islas</button>
+                    <button class="nav-item" type="button" data-view-link="juego" data-nav="juego"><span>🎮</span> Jugar</button>
                     <button class="nav-item" type="button" data-view-link="tesoro" data-nav="tesoro"><span>💎</span> Tesoro</button>
                 </nav>
                 <button class="music-button" id="musicBtn" type="button" aria-pressed="false"><span>♫</span> Música de abordo</button>
