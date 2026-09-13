@@ -11,6 +11,7 @@ La interfaz funciona sin imágenes oficiales y deja espacios visuales opcionales
 - `tripulacion.gif`: reemplaza `Kero.gif` en el pie de página.
 - `elementos-marinos.jfif`: imagen vertical de elementos marinos, mostrada en el lado derecho del fondo.
 - `tesoro-tripulacion.png`: imagen grande de la vista del tesoro, mostrada como mapa de la travesía.
+- `tripulacion-fiesta.jpg`: imagen destacada de la tripulación en la página principal.
 
 Conserva los nombres indicados o cambia la ruta `src` correspondiente en `index.html`. Se recomienda usar imágenes propias, de dominio público o con una licencia que permita su publicación.
 
