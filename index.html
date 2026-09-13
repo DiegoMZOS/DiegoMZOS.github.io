@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=game-gif-1">
+    <link rel="stylesheet" href="styles.css?v=game-gif-2">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -87,19 +87,23 @@
                     <img src="tesoro-tripulacion.png" alt="Ilustración de la tripulación y el mapa del tesoro">
                     <figcaption>Mapa de la travesía</figcaption>
                 </figure>
-                <figure class="game-gif">
-                    <img src="pensando-tripulacion.gif" alt="Tripulante pensando antes de elegir un objeto">
-                    <figcaption>La tripulación está pensando...</figcaption>
-                </figure>
                 <div class="game-status"><span>Aciertos <strong id="gameScore">0</strong>/10</span><span>Tiempo <strong id="gameTime">30</strong>s</span></div>
                 <div class="game-board">
                     <div class="compass-card" id="compassCard" aria-live="polite">⚓<small>Recolecta anclas</small></div>
                     <div class="falling-game" id="fallingGame" aria-label="Zona de juego"></div>
                 </div>
                 <p class="game-feedback" id="gameFeedback">Pulsa iniciar para comenzar la travesía.</p>
-                <button class="button button--gold" type="button" id="startGame">▶ Iniciar juego</button>
-                <button class="button button--coral" type="button" id="restartGame">↻ Reiniciar</button>
-                <button class="button button--outline" type="button" id="returnHome" data-view-link="inicio" hidden>← Regresar a la cubierta</button>
+                <div class="game-actions">
+                    <div class="game-buttons">
+                        <button class="button button--gold" type="button" id="startGame">▶ Iniciar juego</button>
+                        <button class="button button--coral" type="button" id="restartGame">↻ Reiniciar</button>
+                        <button class="button button--outline" type="button" id="returnHome" data-view-link="inicio" hidden>← Regresar a la cubierta</button>
+                    </div>
+                    <figure class="game-gif">
+                        <img src="pensando-tripulacion.gif" alt="Tripulante pensando antes de elegir un objeto">
+                        <figcaption>La tripulación está pensando...</figcaption>
+                    </figure>
+                </div>
             </div>
 
             <div class="view" id="view-tesoro" data-view="tesoro" hidden>
@@ -147,6 +151,6 @@
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=game-gif-1"></script>
+    <script src="script.js?v=game-gif-2"></script>
 </body>
 </html>
