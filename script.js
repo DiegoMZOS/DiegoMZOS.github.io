@@ -27,6 +27,12 @@ document.querySelectorAll(".island").forEach((island) => {
 
 const musicButton = document.querySelector("#musicBtn");
 const music = document.querySelector("#bgMusic");
+music.volume = 0.55;
+music.play().catch(() => {
+    musicButton.innerHTML = "<span>▶</span> Reproducir música";
+    musicButton.setAttribute("aria-pressed", "false");
+    liveRegion.textContent = "Pulsa reproducir música para iniciar la banda sonora.";
+});
 musicButton.addEventListener("click", async () => {
     if (music.paused) {
         try {
@@ -38,7 +44,7 @@ musicButton.addEventListener("click", async () => {
         }
     } else {
         music.pause();
-        musicButton.innerHTML = "<span>♫</span> Música de abordo";
+        musicButton.innerHTML = "<span>▶</span> Reproducir música";
         musicButton.setAttribute("aria-pressed", "false");
     }
 });
@@ -99,6 +105,14 @@ function finishGame() {
     document.querySelector("#startGame").textContent = "✓ Nivel completado";
     document.querySelector("#startGame").disabled = true;
     document.querySelector("#returnHome").hidden = false;
+    document.querySelector("#progressLabel").textContent = "100%";
+    document.querySelector(".route-card__heading strong").lastChild.textContent = " · Tesoro desbloqueado";
+    document.querySelector("#routeCurrent").classList.add("is-unlocked");
+    document.querySelector("#routeLine").classList.add("is-done");
+    const treasureButton = document.querySelector("#routeTreasure");
+    treasureButton.disabled = false;
+    treasureButton.classList.add("is-unlocked");
+    treasureButton.setAttribute("aria-label", "Abrir tesoro desbloqueado");
 }
 
 function resetGame() {

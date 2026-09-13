@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=navigation-routes-1">
+    <link rel="stylesheet" href="styles.css?v=music-progress-1">
     <title>Grand Line para Kanel | Flores amarillas</title>
 </head>
 <body>
@@ -23,7 +23,10 @@
                 <span class="jolly">☠</span>
                 <span><strong>Grand Line</strong><small>para Kanel</small></span>
             </a>
-            <div class="topbar__status"><span class="signal"></span> Navegando con cariño</div>
+            <div class="topbar__tools">
+                <div class="topbar__status"><span class="signal"></span> Navegando con cariño</div>
+                <button class="music-button" id="musicBtn" type="button" aria-pressed="true"><span>Ⅱ</span> Pausar música</button>
+            </div>
         </header>
 
         <section class="ship-card" aria-label="Aventura interactiva">
@@ -42,13 +45,13 @@
                     </div>
                 </div>
                 <div class="route-card">
-                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong><span id="progressLabel">100%</span> · Tesoro desbloqueado</strong></div>
+                    <div class="route-card__heading"><span>RUTA ACTUAL</span><strong><span id="progressLabel">0%</span> · Completa el minijuego para llegar al tesoro</strong></div>
                     <div class="route">
                         <span class="route__port is-done">✦<small>Salida</small></span>
                         <span class="route__line is-done"></span>
-                        <span class="route__port is-unlocked" id="routeCurrent">★<small>Ahora</small></span>
-                        <span class="route__line is-done" id="routeLine"></span>
-                        <button class="route__port is-unlocked route__treasure-button" id="routeTreasure" type="button" aria-label="Abrir tesoro">♜<small>Tesoro</small></button>
+                        <span class="route__port is-current" id="routeCurrent">★<small>Ahora</small></span>
+                        <span class="route__line" id="routeLine"></span>
+                        <button class="route__port route__treasure-button" id="routeTreasure" type="button" aria-label="Completa el minijuego para abrir el tesoro" disabled>♜<small>Tesoro</small></button>
                     </div>
                 </div>
             </div>
@@ -62,7 +65,6 @@
                     <p>Que nunca te falte viento a favor, una tripulación que te cuide y motivos para sonreír. Si el mar se pone difícil, recuerda que siempre tendrás un lugar en este barco.</p>
                     <strong>Con cariño, tu capitán de las flores amarillas 🌼</strong>
                 </div>
-                <button class="button button--coral" type="button" data-view-link="tesoro">🔐 Abrir el tesoro secreto</button>
             </div>
 
             <div class="view" id="view-islas" data-view="islas" hidden>
@@ -124,9 +126,6 @@
                 </div>
             </div>
 
-            <div class="ship-controls">
-                <button class="music-button" id="musicBtn" type="button" aria-pressed="false"><span>♫</span> Música de abordo</button>
-            </div>
         </section>
 
         <footer class="footer">
@@ -138,7 +137,7 @@
         </footer>
     </main>
 
-    <audio id="bgMusic" loop preload="none"><source src="relax.mp3" type="audio/mpeg"></audio>
+    <audio id="bgMusic" loop autoplay preload="auto"><source src="memories.mp3" type="audio/mpeg"></audio>
     <div class="treasure-modal" id="treasureModal" hidden role="dialog" aria-modal="true" aria-labelledby="treasureTitle">
         <div class="treasure-modal__card">
             <button class="modal-close" id="closeTreasure" type="button" aria-label="Cerrar postal">×</button>
@@ -150,6 +149,6 @@
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=navigation-routes-1"></script>
+    <script src="script.js?v=music-progress-1"></script>
 </body>
 </html>
