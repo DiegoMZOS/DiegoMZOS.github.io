@@ -27,25 +27,35 @@ document.querySelectorAll(".island").forEach((island) => {
 
 const musicButton = document.querySelector("#musicBtn");
 const music = document.querySelector("#bgMusic");
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+function playButtonSound() {
+    if (audioContext.state === "suspended") audioContext.resume();
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(520, audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(760, audioContext.currentTime + 0.07);
+    gain.gain.setValueAtTime(0.045, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.09);
+    oscillator.connect(gain).connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.1);
+}
+document.addEventListener("click", (event) => {
+    if (event.target.closest("button, a")) playButtonSound();
+});
 music.volume = 0.55;
 music.play().catch(() => {
-    musicButton.innerHTML = "<span>▶</span> Reproducir música";
+    musicButton.innerHTML = "<span>■</span> Detener música";
     musicButton.setAttribute("aria-pressed", "false");
     liveRegion.textContent = "Pulsa reproducir música para iniciar la banda sonora.";
 });
 musicButton.addEventListener("click", async () => {
-    if (music.paused) {
-        try {
-            await music.play();
-            musicButton.innerHTML = "<span>Ⅱ</span> Pausar música";
-            musicButton.setAttribute("aria-pressed", "true");
-        } catch {
-            liveRegion.textContent = "No se pudo reproducir la música.";
-        }
-    } else {
+    if (!music.paused) {
         music.pause();
-        musicButton.innerHTML = "<span>▶</span> Reproducir música";
+        musicButton.innerHTML = "<span>▶</span> Música detenida";
         musicButton.setAttribute("aria-pressed", "false");
+        liveRegion.textContent = "La música está detenida.";
     }
 });
 
