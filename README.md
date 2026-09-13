@@ -10,6 +10,7 @@ La interfaz funciona sin imágenes oficiales y deja espacios visuales opcionales
 - `isla-sol.gif`, `isla-flor.gif`, `isla-cielo.gif`: puedes añadirlos a cada tarjeta de isla.
 - `tripulacion.gif`: reemplaza `Kero.gif` en el pie de página.
 - `elementos-marinos.jfif`: imagen vertical de elementos marinos, mostrada en el lado derecho del fondo.
+- `tesoro-tripulacion.png`: imagen grande de la vista del tesoro, mostrada como mapa de la travesía.
 
 Conserva los nombres indicados o cambia la ruta `src` correspondiente en `index.html`. Se recomienda usar imágenes propias, de dominio público o con una licencia que permita su publicación.
 
