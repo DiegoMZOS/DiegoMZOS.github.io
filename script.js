@@ -23,7 +23,6 @@ document.querySelectorAll(".island").forEach((island) => {
     island.addEventListener("click", () => {
         document.querySelectorAll(".island").forEach((item) => item.classList.remove("is-selected"));
         island.classList.add("is-selected");
-        document.querySelector("#islandMessage").textContent = `${island.dataset.emoji} ${island.dataset.message}`;
         document.querySelector("#islandModalEmoji").textContent = island.dataset.emoji;
         document.querySelector("#islandModalTitle").textContent = island.querySelector("strong").textContent;
         document.querySelector("#islandModalMessage").textContent = island.dataset.message;

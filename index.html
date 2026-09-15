@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Una aventura por la Grand Line hecha de flores amarillas para Kanel.">
+    <meta name="description" content="Una aventura por la Grand Line.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=back-link-1">
-    <title>Grand Line para Kanel | Flores amarillas</title>
+    <link rel="stylesheet" href="styles.css?v=desktop-center-1">
+    <title>Grand Line para Kanel</title>
 </head>
 <body>
     <div class="ocean" aria-hidden="true">
@@ -24,7 +24,7 @@
                 <span><strong>Grand Line</strong><small>para Kanel</small></span>
             </a>
             <div class="topbar__tools">
-                <div class="topbar__status"><span class="signal"></span> Navegando con cariño</div>
+                <div class="topbar__status"><span class="signal"></span>A lo hecho pecho 🍩</div>
                 <button class="music-button" id="musicBtn" type="button" aria-pressed="false"><span>▶</span> Activar música</button>
             </div>
         </header>
@@ -35,12 +35,14 @@
 
             <div class="view is-active" id="view-inicio" data-view="inicio">
                 <div class="hero">
-                    <p class="eyebrow">Registro de la tripulación · 001</p>
-                    <h1>El tesoro más grande<br>es <em>tenerte a bordo.</em></h1>
-                    <p class="hero__copy">Tal vez no sean reales, pero no te quedas sin tus flores amarillas. Hoy zarpamos hacia una aventura hecha especialmente para ti.</p>
+                    <p class="eyebrow">Registro de bitacora · 001</p>
+                    <h1>No es otro dia<br>es </br><em>Es tu cumpleaños.</em></h1>
+                    <p class="hero__copy">Hay días que merecen ser celebrados de una manera especial.
+			Y este es uno de ellos. Preparé esta pequeña carta para ti, con algunos detalles y recuerdos. Espero que disfrutes el recorrido y que,
+                        consiga sacarte una sonrisa. Feliz cumpleaños, Kanel!!!!.</p>
                     <figure class="hero-gallery">
                         <img src="tripulacion-fiesta.jpg" alt="La tripulación celebrando junta con un pastel">
-                        <figcaption>Una celebración para nuestra tripulación</figcaption>
+                        <figcaption>Una torta como las que haces</figcaption>
                     </figure>
                     <div class="hero__actions">
                         <button class="button button--gold" type="button" data-view-link="mensaje">☀️ Leer el mensaje</button>
@@ -62,18 +64,17 @@
 
             <div class="view" id="view-mensaje" data-view="mensaje" hidden>
                 <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
-                <p class="eyebrow">Mensaje en una botella · 002</p>
-                <h2>Para nuestra<br><em>nakama favorita.</em></h2>
+                <p class="eyebrow">Mensaje encontrado en una botella</p>
+                <h2>¡Feliz <br><em>cumpleaños Kanel Rumy Noria! 🥳🎂</em></h2>
                 <figure class="message-gif">
                     <img src="mensaje-ivankov.gif" alt="Tripulación celebrando el mensaje">
-                    <figcaption>Un mensaje con energía de la tripulación</figcaption>
+                    <figcaption></figcaption>
                 </figure>
                 <div class="letter">
-                    <p>Habitas en esa magia eterna del cine de antaño, donde el coraje desafía la sombra y vence al tiempo.Tienes el andar indomable de un corcel al galope,</p>
-                    <p>firme ante el viento y dueña de tu propio horizonte. No hay tormenta que apague la llama de tus metas,</p>
-                    <p>ni laberinto del que no salgas siempre victoriosa.</p>
-                    <p>¡Feliz cumpleaños a un alma libre, noble y legendaria!</p>
-                    <strong>Con cariño, tu capitán de las flores amarillas 🌼</strong>
+			<p>Deseo que el dia de hoy tengas un hermoso dia, rodeada por las personas que quieres y que puedas vivir 
+			   momentos que te hagan sonreír. Te deseo de corazón que este nuevo año de vida venga lleno
+                           de cosas lindas, tranquilidad y metas cumplidas. ✨
+			   Disfruta mucho tu dia especial y nunca olvides sonreir,porque lo mereces mas que nadie.</p>
                 </div>
             </div>
 
@@ -82,10 +83,14 @@
                 <p class="eyebrow">Archipiélago de los recuerdos · 003</p>
                 <h2>Elige una<br><em>isla especial.</em></h2>
                 <div class="island-grid">
-                    <button class="island" type="button" data-message="La Isla Estambre está tejida con calma, colores y abrazos que hacen más bonito el viaje." data-emoji="🧶"><span>🧶</span><strong>Isla Estambre</strong><small>Calma y cariño</small></button>
-                    <button class="island" type="button" data-message="En Isla Broadway cada paso tiene música, luces y una razón para celebrar contigo." data-emoji="🎭"><span>🎭</span><strong>Isla Broadway</strong><small>Luces y alegría</small></button>
+                    <button class="island" type="button" data-message="Ojalá este nuevo año de tu vida sea como uno de tus tejidos: que cada puntada vaya formando momentos felices, que los nudos se puedan deshacer cuando algo se complique, que nunca falten colores nuevos y que al final puedas mirar todo lo que has ido construyendo y sentirte orgullosa de ello. ❤️" data-emoji="🧶"><span>🧶</span><strong>Isla Estambre</strong><small>Calma y cariño</small></button>
+                    <button class="island" type="button" data-message="Que nunca te falte un escenario donde puedas ser tú misma, sueños que perseguir y motivos para seguir actuando, creando y haciendo eso que te apasiona.
+Y recuerda que, de todas las obras, la más importante siempre será la que escribas tú misma. ❤️" data-emoji="🎭"><span>🎭</span><strong>Isla Broadway</strong><small>Luces y alegría</small></button>
                 </div>
-                <p class="island-message" id="islandMessage">Selecciona una isla para descubrir su mensaje.</p>
+                <figure class="island-gift" id="islandGift">
+                    <img src="reemplazar.gift" alt="Animación decorativa de las islas" loading="lazy">
+                    <figcaption>Un recuerdo entre islas</figcaption>
+                </figure>
             </div>
 
             <div class="view" id="view-juego" data-view="juego" hidden>
@@ -111,7 +116,7 @@
                     </div>
                     <figure class="game-gif">
                         <img src="pensando-tripulacion.gif" alt="Tripulante pensando antes de elegir un objeto">
-                        <figcaption>La tripulación está pensando...</figcaption>
+                        <figcaption>....</figcaption>
                     </figure>
                 </div>
             </div>
@@ -140,9 +145,9 @@
         <footer class="footer">
             <div class="crew">
                 <img src="Kero.gif" alt="Kero navegando con la tripulación" width="48" height="48">
-                <span><strong>Tripulación Kanel</strong><small>Siempre juntos en alta mar</small></span>
+                <span><strong>Tripulación de Bel</strong><small></small></span>
             </div>
-            <span class="footer__quote">“El mar es el mar” <b>— Luffy</b></span>
+            <span class="footer__quote">“Si no arriesgas tu vida, no puedes crear un futuro.” <b>— Luffy</b></span>
         </footer>
     </main>
 
@@ -151,12 +156,12 @@
         <div class="treasure-modal__card">
             <button class="modal-close" id="closeTreasure" type="button" aria-label="Cerrar postal">×</button>
             <figure class="reward-image">
-                <img src="recompensa-tesoro.png" alt="Recompensa especial de la tripulación">
+                <img src="recompensa-tesoro.png" alt="Recompensa especial">
                 <figcaption>Recompensa desbloqueada</figcaption>
             </figure>
             <p class="eyebrow">Tesoro canjeado</p>
-            <h2 id="treasureTitle">Tu postal de la tripulación</h2>
-            <p>El nivel está completo. Guarda este recuerdo de nuestra travesía.</p>
+            <h2 id="treasureTitle">Tu postal</h2>
+            <p>El nivel está completo. Guarda tu cartel de busqueda.</p>
             <button class="button button--gold" id="downloadReward" type="button">⬇️ Descargar imagen</button>
         </div>
     </div>
@@ -170,6 +175,6 @@
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=download-reward-1"></script>
+    <script src="script.js?v=island-modal-1"></script>
 </body>
 </html>
