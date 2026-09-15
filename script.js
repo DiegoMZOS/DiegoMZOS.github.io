@@ -62,13 +62,28 @@ function setMusicButton(isPlaying) {
     musicButton.setAttribute("aria-pressed", String(isPlaying));
 }
 
-music.play().then(() => {
-    setMusicButton(true);
-}).catch(() => {
-    setMusicButton(false);
-    musicButton.setAttribute("aria-pressed", "false");
-    liveRegion.textContent = "El navegador requiere una interacción para iniciar la música.";
-});
+setMusicButton(false);
+const welcomeScreen = document.querySelector("#welcomeScreen");
+const continueButton = document.querySelector("#continueBtn");
+async function enterExperience() {
+    continueButton.disabled = true;
+    try {
+        music.currentTime = 0;
+        await music.play();
+        setMusicButton(true);
+        liveRegion.textContent = "Bienvenida. La música está sonando.";
+    } catch (error) {
+        console.warn("No se pudo iniciar la música:", error);
+        setMusicButton(false);
+        liveRegion.textContent = "Puedes activar la música desde el botón superior.";
+    }
+    welcomeScreen.classList.add("is-leaving");
+    window.setTimeout(() => {
+        welcomeScreen.hidden = true;
+        document.querySelector("#view-inicio .button")?.focus();
+    }, reducedMotion.matches ? 20 : 800);
+}
+continueButton.addEventListener("click", enterExperience);
 musicButton.addEventListener("click", async () => {
     if (music.paused) {
         try {

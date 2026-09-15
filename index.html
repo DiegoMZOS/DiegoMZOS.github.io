@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Una aventura por la Grand Line.">
     <meta name="theme-color" content="#071d2b">
-    <link rel="stylesheet" href="styles.css?v=desktop-center-1">
+    <link rel="stylesheet" href="styles.css?v=welcome-particles-final">
     <title>Grand Line para Kanel</title>
 </head>
 <body>
@@ -14,7 +14,17 @@
         <div class="cloud cloud--one"></div>
         <div class="cloud cloud--two"></div>
         <div class="waves"></div>
-        <div class="bubbles"></div>
+    </div>
+    <div class="bubbles particles-front" aria-hidden="true"></div>
+    <div class="welcome-screen" id="welcomeScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+        <div class="welcome-screen__glow" aria-hidden="true"></div>
+        <button class="welcome-card" id="continueBtn" type="button">
+            <span class="welcome-card__compass" aria-hidden="true">✦</span>
+            <span class="welcome-card__eyebrow">Una nueva travesía te espera</span>
+            <strong id="welcomeTitle">Presiona para continuar</strong>
+            <span class="welcome-card__hint">Toca para subir a bordo</span>
+            <span class="welcome-card__pulse" aria-hidden="true"></span>
+        </button>
     </div>
 
     <main class="app-shell">
@@ -36,13 +46,14 @@
             <div class="view is-active" id="view-inicio" data-view="inicio">
                 <div class="hero">
                     <p class="eyebrow">Registro de bitacora · 001</p>
-                    <h1>No es otro dia<br>es </br><em>Es tu cumpleaños.</em></h1>
+                    <h1>No es otro dia<br><em>Es tu cumpleaños     
+				N° 22 🗿.</em></h1>
                     <p class="hero__copy">Hay días que merecen ser celebrados de una manera especial.
-			Y este es uno de ellos. Preparé esta pequeña carta para ti, con algunos detalles y recuerdos. Espero que disfrutes el recorrido y que,
-                        consiga sacarte una sonrisa. Feliz cumpleaños, Kanel!!!!.</p>
+			Y este es uno de ellos. Preparé esta pequeña carta para ti, con algunos detalles y recuerdos. Espero que disfrutes el recorrido y que
+                        consiga sacarte una sonrisa.</p>
                     <figure class="hero-gallery">
                         <img src="tripulacion-fiesta.jpg" alt="La tripulación celebrando junta con un pastel">
-                        <figcaption>Una torta como las que haces</figcaption>
+                        <figcaption>🍩🍩🍩</figcaption>
                     </figure>
                     <div class="hero__actions">
                         <button class="button button--gold" type="button" data-view-link="mensaje">☀️ Leer el mensaje</button>
@@ -96,18 +107,18 @@ Y recuerda que, de todas las obras, la más importante siempre será la que escr
             <div class="view" id="view-juego" data-view="juego" hidden>
                 <button class="back-link" type="button" data-view-link="inicio">← Volver al barco</button>
                 <p class="eyebrow">Prueba de navegación · 005</p>
-                <h2>Encuentra el rumbo<br><em>de la tripulación.</em></h2>
+                <h2>Descubre lo que oculta<br><em>esta dificil prueba.</em></h2>
                 <p class="game-intro">Atrapa únicamente los objetos que indique la brújula. Cada acierto suma un punto; los objetos incorrectos no cuentan. Llega a 10 para completar el nivel.</p>
                 <figure class="game-gallery">
                     <img src="tesoro-tripulacion.png" alt="Ilustración de la tripulación y el mapa del tesoro">
-                    <figcaption>Mapa de la travesía</figcaption>
+                    <figcaption>⛵⛵⛵⛵</figcaption>
                 </figure>
                 <div class="game-status"><span>Aciertos <strong id="gameScore">0</strong>/10</span><span>Tiempo <strong id="gameTime">30</strong>s</span></div>
                 <div class="game-board">
                     <div class="compass-card" id="compassCard" aria-live="polite">⚓<small>Recolecta anclas</small></div>
                     <div class="falling-game" id="fallingGame" aria-label="Zona de juego"></div>
                 </div>
-                <p class="game-feedback" id="gameFeedback">Pulsa iniciar para comenzar la travesía.</p>
+                <p class="game-feedback" id="gameFeedback">Pulsa iniciar para comenzar.</p>
                 <div class="game-actions">
                     <div class="game-buttons">
                         <button class="button button--gold" type="button" id="startGame">▶ Iniciar juego</button>
@@ -151,7 +162,7 @@ Y recuerda que, de todas las obras, la más importante siempre será la que escr
         </footer>
     </main>
 
-    <audio id="bgMusic" loop autoplay preload="auto"><source src="memories.mp3" type="audio/mpeg"></audio>
+    <audio id="bgMusic" loop preload="auto"><source src="memories.mp3" type="audio/mpeg"></audio>
     <div class="treasure-modal" id="treasureModal" hidden role="dialog" aria-modal="true" aria-labelledby="treasureTitle">
         <div class="treasure-modal__card">
             <button class="modal-close" id="closeTreasure" type="button" aria-label="Cerrar postal">×</button>
@@ -175,6 +186,6 @@ Y recuerda que, de todas las obras, la más importante siempre será la que escr
         </div>
     </div>
     <div class="live-region" role="status" aria-live="polite"></div>
-    <script src="script.js?v=island-modal-1"></script>
+    <script src="script.js?v=welcome-particles-final"></script>
 </body>
 </html>
